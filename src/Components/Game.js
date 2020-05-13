@@ -12,13 +12,16 @@ class Game extends React.Component {
         });
     }
     randomNumber = () => {
-        return Math.ceil(Math.random() * 100);
+        return Math.ceil(Math.random() * 1000);
     }
-    compareToNumber = (number, numberGuess) => {
-        if (number == numberGuess) {
-            alert("very good");
-        } else {
-            alert("not bad");
+    compareToNumber = (numberInput, numberGuess) => {
+        if (numberInput == numberGuess) {
+            alert("Very good");
+        } else if(numberInput > numberGuess){
+        	alert("Lower than this number!")            
+        }
+        else{
+        	alert("Higher than this number!")
         }
     }
     handleChange = (e) => {
@@ -43,7 +46,7 @@ class Game extends React.Component {
         return (
             <div className="game_content">
 				<h1>Welcome to Guessing Number Game :)</h1>
-				<h3>Guess the number between 1 and 100. Easy, right?</h3>
+				<h3>Guess the number between 1 and 1000. Easy, right?</h3>
 				<form onSubmit={this.handleSubmit}>
 					<input value={this.state.inputNumber} onChange={this.handleChange}  /><br />
 					<button type="submit">Guess!</button>
